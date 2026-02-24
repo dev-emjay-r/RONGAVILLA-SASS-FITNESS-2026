@@ -1,0 +1,102 @@
+@use "../abstract/" as *;
+@use "../base/" as *;
+
+.aboutBanner {
+  $default-padding: 2rem 0;
+  padding: $default-padding;
+
+  &__wrapper {
+    @include gridFixed(1fr, 2rem);
+    align-items: center;
+  }
+  &__top {
+    @include gridCustom(800px 1fr, 0);
+    // @include between;
+
+    &-left {
+      small {
+        font-size: 1.2rem;
+      }
+      h1 {
+        max-width: 95%;
+        line-height: 5rem;
+        margin-top: 2rem;
+      }
+    }
+    &-right {
+      font-size: 1.2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__bottom {
+    @include gridFixed(2, 2rem);
+    grid-template-rows: min-content 1fr;
+    gap: 4rem;
+    &--a {
+      grid-area: a;
+      @include imgFit(500px,500px);
+    }
+    &--b {
+      grid-area: b;
+      h3 {
+        margin-bottom: 2rem;
+      }
+      max-width: 40rem;
+    }
+    &--c {
+      grid-area: c;
+      @include imgFit(100%, 700px);
+      margin-top: 5rem;
+    }
+
+    grid-template-areas:
+      "a c"
+      "b c";
+  }
+}
+
+.aboutValues {
+    padding: 4rem 0;
+    .title {
+        
+        color: $clr--light;
+        @include gridFixed(1fr, 1rem);
+
+
+        h2 {
+            font-weight: 700;
+        }
+    }
+    &__cards {
+    @include  gridFixed(2, 1rem);
+    padding: 0 8rem;
+    }
+  .cardIcon {
+    @include centerAll;
+    @include gridCustom(1fr 2fr, 2rem);
+    padding: 1rem;
+    &__details {
+        margin: 2rem;
+        h4 { 
+            text-align: left;
+        }
+        p {
+            text-align: justify;
+
+        }
+    }
+    img{
+        width: 100%;
+    }
+  }
+}
+
+.aboutLocation { 
+    padding: 4rem 0;
+    &__map {
+        @include centerAll;
+    }
+}

@@ -1,0 +1,106 @@
+// Import all from abstract
+// abstract includes color, mixins, and utilities
+@use "../abstract/" as *;
+
+// Import all from Base
+// base includes reset, typography, and base(base html)
+@use "../base/" as *;
+
+// class homeBanner
+$default-padding: 4rem 0;
+.homeBanner {
+  padding: $default-padding;
+  // $clr--light imported from abstract
+  color: $clr--light;
+  // & is a parent selector
+  // so for example:
+  // &__wrapper inside of .homeBanner is a equivalent of .homeBanner__wrapper in css
+  &__wrapper {
+    // @include $component is came from mixins
+    // Which accepts parameters and returns a css value based on  the parameter
+    @include gridFixed(2, 1rem);
+    align-items: center;
+  }
+  &__left {
+    small {
+      text-transform: uppercase;
+    }
+    h1 {
+      line-height: 4rem;
+      margin: 2rem 0;
+    }
+    p {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.homeAbout {
+  padding: $default-padding; //4rem 0
+  &__wrapper {
+    // $grid, $gap
+    @include gridFixed(2, 3rem);
+    align-items: center;
+  }
+  &--a {
+    grid-area: a;
+  }
+  &--b {
+    grid-area: b;
+  }
+  &--c {
+    grid-area: c;
+  }
+
+  &__left {
+    ul {
+      display: grid;
+      grid-template-areas: 
+      "a c" 
+      "b c";
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+  &__right {
+    h2 {
+        margin-bottom: 1rem;
+    }
+    p {
+        margin-bottom: 2rem;
+    }
+  }
+}
+
+
+.homeClass {
+  padding: 4rem 0;
+  &__slider {
+    display: flex;
+    gap: 2rem;
+  }
+  .listButton {
+    margin-top: 2rem;
+    @include centerAll;
+  }
+}
+
+.homeTrainer {
+
+  padding : $default-padding;
+
+  // &__wrapper {
+  //   @include gridCustom("1fr",2rem);
+  // }
+  &__title {
+    @include between;
+    margin-bottom: 2rem;
+    h2 {
+      max-width: 40rem;
+    }
+  }
+
+  &__cards {
+    @include  gridFixed(3, 1rem);
+  }
+}

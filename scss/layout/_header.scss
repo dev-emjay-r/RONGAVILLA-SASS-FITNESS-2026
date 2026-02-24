@@ -1,0 +1,26 @@
+@use "../abstract/" as *;
+@use "../base/typography" as *;
+
+.header {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 3rem 0;
+  &__wrapper {
+    @include between;
+  }
+  &__logo {
+    a > h4 {
+      color: $clr--dark;
+    }
+  }
+  &__nav {
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      li a {
+        font-weight: 600;
+        color: $clr--dark;
+      }
+    }
+  }
+}
