@@ -1837,6 +1837,7 @@ img {
 }
 @media screen and (max-width: 520px) {
   .contactBanner {
+    position: static;
     padding-top: 8rem;
   }
 }

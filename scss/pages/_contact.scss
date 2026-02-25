@@ -5,6 +5,7 @@
   padding: 4rem 0;
   position: relative;
   @include mediaQuery(520px){
+    position: static;
     padding-top: 8rem;
   }
   &__title {
@@ -73,6 +74,7 @@
           display: none;
         }
     }
+    
   }
 }
 
