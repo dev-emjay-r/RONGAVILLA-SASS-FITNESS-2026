@@ -8,7 +8,10 @@
         
         @include between;
         
-          
+          @include mediaQuery(520px) {
+        flex-direction: column-reverse;
+        gap: 1rem;
+    }
     }
 
     &__social {

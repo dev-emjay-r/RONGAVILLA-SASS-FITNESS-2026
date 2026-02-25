@@ -1,25 +1,18 @@
-// Import all from abstract
-// abstract includes color, mixins, and utilities
 @use "../abstract/" as *;
-
-// Import all from Base
-// base includes reset, typography, and base(base html)
 @use "../base/" as *;
 
-// class homeBanner
 $default-padding: 4rem 0;
 .homeBanner {
-  padding: $default-padding;
-  // $clr--light imported from abstract
+  
+  padding: 4rem 0;
   color: $clr--light;
-  // & is a parent selector
-  // so for example:
-  // &__wrapper inside of .homeBanner is a equivalent of .homeBanner__wrapper in css
   &__wrapper {
-    // @include $component is came from mixins
-    // Which accepts parameters and returns a css value based on  the parameter
     @include gridFixed(2, 1rem);
     align-items: center;
+    @include mediaQuery(520px){
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
   }
   &__left {
     small {
@@ -33,14 +26,20 @@ $default-padding: 4rem 0;
       margin-bottom: 2rem;
     }
   }
+  @include mediaQuery(520px){
+    padding-top: 12rem;
+  }
 }
 
 .homeAbout {
-  padding: $default-padding; //4rem 0
+  padding: 4rem 0;
   &__wrapper {
-    // $grid, $gap
     @include gridFixed(2, 3rem);
     align-items: center;
+    @include mediaQuery(520px){
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
   }
   &--a {
     grid-area: a;
@@ -51,27 +50,25 @@ $default-padding: 4rem 0;
   &--c {
     grid-area: c;
   }
-
   &__left {
     ul {
       display: grid;
-      grid-template-areas: 
-      "a c" 
-      "b c";
+      grid-template-areas:
+        "a c"
+        "b c";
       align-items: center;
       gap: 1rem;
     }
   }
   &__right {
     h2 {
-        margin-bottom: 1rem;
+      margin-bottom: 1rem;
     }
     p {
-        margin-bottom: 2rem;
+      margin-bottom: 2rem;
     }
   }
 }
-
 
 .homeClass {
   padding: 4rem 0;
@@ -84,10 +81,8 @@ $default-padding: 4rem 0;
     @include centerAll;
   }
 }
-
 .homeTrainer {
-
-  padding : $default-padding;
+  padding: $default-padding;
 
   // &__wrapper {
   //   @include gridCustom("1fr",2rem);
@@ -98,9 +93,24 @@ $default-padding: 4rem 0;
     h2 {
       max-width: 40rem;
     }
+
+    @include mediaQuery(520px) {
+      flex-direction: column;
+      justify-content: center;
+      h2 {
+        text-align: center;
+      }
+    }
   }
 
   &__cards {
-    @include  gridFixed(3, 1rem);
+    @include gridFixed(3, 1rem);
+    @include mediaQuery(520px) {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+    }
   }
 }

@@ -2,6 +2,10 @@
 @use "../base/typography" as *;
 
 .header {
+  @include mediaQuery(520px) {
+    position: fixed;
+    width: 100%;
+  }
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 3rem 0;
   &__wrapper {
@@ -12,6 +16,7 @@
       color: $clr--dark;
     }
   }
+
   &__nav {
     ul {
       display: flex;
@@ -21,6 +26,47 @@
         font-weight: 600;
         color: $clr--dark;
       }
+    }
+
+    @include mediaQuery(520px) {
+      &.open {
+        ul{
+          right: 0;
+        transition: all 0.5s ease;
+        li a{
+          color: $clr--light;
+        }
+        }
+      }
+      ul {
+        position: fixed;
+        background-color: $clr--dark;
+        height: 100vh;
+        width: 100%;
+        right: -100%;
+        margin-top: 4rem;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        transition: all 0.5s ease;
+      }
+
+      
+    }
+  }
+
+  .toggle_menu {
+    display: none;
+    span {
+      color: $clr--dark;
+      width: 3rem;
+      border: 2px solid $clr--dark;
+      border-radius: 1rem;
+    }
+    @include mediaQuery(520px) {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
   }
 }

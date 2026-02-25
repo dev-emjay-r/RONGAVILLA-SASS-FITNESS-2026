@@ -4,15 +4,20 @@
 .aboutBanner {
   $default-padding: 2rem 0;
   padding: $default-padding;
-
+  @include mediaQuery(520px){
+    padding-top: 8rem;
+  }
   &__wrapper {
     @include gridFixed(1fr, 2rem);
     align-items: center;
+    
   }
   &__top {
     @include gridCustom(800px 1fr, 0);
     // @include between;
-
+    @include mediaQuery(520px){
+      grid-template-columns: 1fr
+    }
     &-left {
       small {
         font-size: 1.2rem;
@@ -73,6 +78,11 @@
     &__cards {
     @include  gridFixed(2, 1rem);
     padding: 0 8rem;
+    @include mediaQuery(520px){
+      grid-template-columns: 1fr;
+      justify-content: center;
+      
+    }
     }
   .cardIcon {
     @include centerAll;
@@ -90,6 +100,17 @@
     }
     img{
         width: 100%;
+    }
+    @include mediaQuery(520px){
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      align-content: center;
+      img {
+        width: 50%;
+        align-self: center;
+      }
     }
   }
 }
